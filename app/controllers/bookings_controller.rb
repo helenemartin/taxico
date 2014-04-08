@@ -18,6 +18,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update_attributes(booking_params)
+      redirect_to @booking, notice: "Thanks for booking with #{@booking.taxi.name}."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def booking_params

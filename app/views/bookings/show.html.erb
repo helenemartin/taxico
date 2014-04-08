@@ -1,2 +1,5 @@
 
-<p><%= @booking.name %> has booked with <%= @booking.taxi.name %>.</p>
+<p><%= @booking.name %> has booked with 
+
+  <%= link_to @booking.taxi.name, taxi_path(@booking.taxi) %>.
+</p>

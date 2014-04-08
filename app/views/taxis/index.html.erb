@@ -1,7 +1,4 @@
 <h1>All Taxis</h1>
 
-<ul>
-<% @taxis.each do |taxi| %>
-  <li><%= taxi.name %>: <%= taxi.phone_number %></li>
-<% end %>
-</ul>
+<%= render @taxis %>
+

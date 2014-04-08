@@ -12,4 +12,16 @@ feature "Bookings" do
     page.should have_content "Thanks for booking with #{taxi.name}."
   end
 
+  scenario "editing a booking" do
+    taxi = FactoryGirl.create(:taxi)
+    booking = FactoryGirl.create(:booking, taxi: taxi)
+    visit edit_booking_path(booking)
+
+    fill_in :booking_name, with: "Rocky Balboa"
+    click_button "Book"
+
+    page.should have_content "Thanks for booking with #{taxi.name}."
+  end
+
+
 end
