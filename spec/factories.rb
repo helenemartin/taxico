@@ -6,4 +6,8 @@ FactoryGirl.define do
     number_of_taxis 3
   end
 
+  factory :booking do
+    name "Jane"
+  end
+
 end
