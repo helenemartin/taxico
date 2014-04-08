@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_filter :authenticate_user!
 
   def new
     @booking = Booking.new
@@ -10,6 +11,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.name = current_user.email
     if @booking.valid?
       @booking.save
       redirect_to @booking, notice: "Thanks for booking with #{@booking.taxi.name}."
@@ -34,7 +36,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:name, :taxi_id)
+    params.require(:booking).permit(:taxi_id)
   end
 
 end

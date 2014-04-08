@@ -12,9 +12,6 @@
     </div>
   <% end %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
   <%= f.label :taxi_id, 'Taxi company' %>
   <%= f.collection_select :taxi_id, Taxi.all, :id, :name %>
 
