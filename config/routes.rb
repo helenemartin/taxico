@@ -4,4 +4,7 @@ Taxico::Application.routes.draw do
   resources :taxis
   resources :bookings
 
+
+  root to: "taxis#index"
+
 end
